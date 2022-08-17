@@ -27,3 +27,46 @@ class Post extends Model
     
     ...
 ```
+
+### Whats happening
+
+Input:
+```php
+[
+    [
+        "title": "English title",
+    ]
+]
+```
+
+Will be saved as:
+
+```php
+[
+    [
+        "title": [
+            "en": "English title",
+        ],
+    ]
+]
+```
+
+When setting a different locale (nl):
+```php
+[
+    [
+        "title": "Nederlandse titel",
+    ]
+]
+```
+it will be saved as:
+```php
+[
+    [
+        "title": [
+            "en": "English title",
+            "nl": "Nederlandse titel",
+        ],
+    ]
+]
+```
