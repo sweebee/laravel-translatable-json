@@ -84,7 +84,7 @@ trait HasJsonTranslations {
      */
     public function getJsonTranslation($key, $locale): array
     {
-        $data = json_decode($this->attributes[$key], true);
+        $data = json_decode($this->attributes[$key] ?? '[]', true);
         $translatable = $this->translatableJson[$key];
         foreach($data as $key => $value){
             $data[$key] = $this->translateArray($translatable, $key, $value, $locale);
